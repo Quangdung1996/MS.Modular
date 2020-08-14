@@ -1,0 +1,16 @@
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.dll
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.csprojAssemblyReference.cache
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.AssemblyInfoInputs.cache
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.AssemblyInfo.cs
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.deps.json
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.dll
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.pdb
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.dll
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Domain.dll
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.pdb
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.pdb
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Domain.pdb
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.csproj.CoreCompileInputs.cache
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.csproj.CopyComplete
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.dll
+D:\NET\MS.Modular\MS.Modular.BuildingBlocks.EventBus\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.EventBus.pdb

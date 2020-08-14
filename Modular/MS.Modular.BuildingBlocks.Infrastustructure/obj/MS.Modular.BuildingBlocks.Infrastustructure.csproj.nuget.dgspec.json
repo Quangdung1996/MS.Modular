@@ -1,0 +1,217 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Infrastustructure\\MS.Modular.BuildingBlocks.Infrastustructure.csproj": {}
+  },
+  "projects": {
+    "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Application\\MS.Modular.BuildingBlocks.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Application\\MS.Modular.BuildingBlocks.Application.csproj",
+        "projectName": "MS.Modular.BuildingBlocks.Application",
+        "projectPath": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Application\\MS.Modular.BuildingBlocks.Application.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Domain\\MS.Modular.BuildingBlocks.Domain.csproj": {
+                "projectPath": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Domain\\MS.Modular.BuildingBlocks.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Domain\\MS.Modular.BuildingBlocks.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Domain\\MS.Modular.BuildingBlocks.Domain.csproj",
+        "projectName": "MS.Modular.BuildingBlocks.Domain",
+        "projectPath": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Domain\\MS.Modular.BuildingBlocks.Domain.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.35, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Infrastustructure\\MS.Modular.BuildingBlocks.Infrastustructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Infrastustructure\\MS.Modular.BuildingBlocks.Infrastustructure.csproj",
+        "projectName": "MS.Modular.BuildingBlocks.Infrastustructure",
+        "projectPath": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Infrastustructure\\MS.Modular.BuildingBlocks.Infrastustructure.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Infrastustructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Application\\MS.Modular.BuildingBlocks.Application.csproj": {
+                "projectPath": "D:\\NET\\New folder\\MS.Modular\\Modular\\MS.Modular.BuildingBlocks.Application\\MS.Modular.BuildingBlocks.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.1, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+D:\NET\MS.Modular\MS.Modular.LoggingManagement.Infrastructure\bin\Debug\netcoreapp3.1\MS.Modular.LoggingManagement.Infrastructure.deps.json
+D:\NET\MS.Modular\MS.Modular.LoggingManagement.Infrastructure\bin\Debug\netcoreapp3.1\MS.Modular.LoggingManagement.Infrastructure.dll
+D:\NET\MS.Modular\MS.Modular.LoggingManagement.Infrastructure\obj\Debug\netcoreapp3.1\MS.Modular.LoggingManagement.Infrastructure.csprojAssemblyReference.cache
+D:\NET\MS.Modular\MS.Modular.LoggingManagement.Infrastructure\obj\Debug\netcoreapp3.1\MS.Modular.LoggingManagement.Infrastructure.AssemblyInfoInputs.cache
+D:\NET\MS.Modular\MS.Modular.LoggingManagement.Infrastructure\obj\Debug\netcoreapp3.1\MS.Modular.LoggingManagement.Infrastructure.AssemblyInfo.cs
+D:\NET\MS.Modular\MS.Modular.LoggingManagement.Infrastructure\bin\Debug\netcoreapp3.1\MS.Modular.LoggingManagement.Infrastructure.pdb
+D:\NET\MS.Modular\MS.Modular.LoggingManagement.Infrastructure\obj\Debug\netcoreapp3.1\MS.Modular.LoggingManagement.Infrastructure.csproj.CoreCompileInputs.cache
+D:\NET\MS.Modular\MS.Modular.LoggingManagement.Infrastructure\obj\Debug\netcoreapp3.1\MS.Modular.LoggingManagement.Infrastructure.dll
+D:\NET\MS.Modular\MS.Modular.LoggingManagement.Infrastructure\obj\Debug\netcoreapp3.1\MS.Modular.LoggingManagement.Infrastructure.pdb

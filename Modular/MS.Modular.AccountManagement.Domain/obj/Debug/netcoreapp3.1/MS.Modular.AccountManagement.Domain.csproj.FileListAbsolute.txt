@@ -1,0 +1,12 @@
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\bin\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.deps.json
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\bin\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.dll
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\bin\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.pdb
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Domain.dll
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Domain.pdb
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\obj\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.csprojAssemblyReference.cache
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\obj\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.AssemblyInfoInputs.cache
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\obj\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.AssemblyInfo.cs
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\obj\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.csproj.CopyComplete
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\obj\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.dll
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\obj\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.pdb
+D:\NET\MS.Modular\MS.Modular.AccountManagement.Domain\obj\Debug\netcoreapp3.1\MS.Modular.AccountManagement.Domain.csproj.CoreCompileInputs.cache
