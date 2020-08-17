@@ -10,3 +10,15 @@ D:\NET\MS.Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\
 D:\NET\MS.Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.csproj.CopyComplete
 D:\NET\MS.Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.dll
 D:\NET\MS.Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.pdb
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.deps.json
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.dll
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.pdb
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Domain.dll
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Domain.pdb
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.csprojAssemblyReference.cache
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.AssemblyInfoInputs.cache
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.AssemblyInfo.cs
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.csproj.CoreCompileInputs.cache
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.csproj.CopyComplete
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.dll
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Application\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.pdb

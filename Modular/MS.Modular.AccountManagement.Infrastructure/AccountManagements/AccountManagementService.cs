@@ -28,8 +28,11 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
             return default;
         }
 
-        public Task<ReturnResponse<AccountDataTransformation>> RegisterAsync(AccountDataTransformation accountDataTransformation)
+        public async Task<ReturnResponse<AccountDataTransformation>> RegisterAsync(AccountDataTransformation accountDataTransformation)
         {
+            var returnResponse = new ReturnResponse<AccountDataTransformation>();
+            var validator = new CreateAccountTransformtionValidator(_userRepository);
+            var result = await validator.ValidateAsync(accountDataTransformation);
             throw new NotImplementedException();
         }
 

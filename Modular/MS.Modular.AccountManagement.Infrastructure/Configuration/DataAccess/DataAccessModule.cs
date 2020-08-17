@@ -2,7 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
+using MS.Modular.AccountManagement.Domain;
 using MS.Modular.AccountManagement.Domain.AccountManagements;
+using MS.Modular.AccountManagement.Domain.Users;
 using MS.Modular.AccountManagement.Infrastructure.AccountManagements;
 using MS.Modular.BuildingBlocks.Application.Data;
 using MS.Modular.BuildingBlocks.Infrastustructure;
@@ -37,7 +39,19 @@ namespace MS.Modular.AccountManagement.Infrastructure.Configuration.DataAccess
 
                 return new AccountManagementContext(dbContextOptionsBuilder.Options, _loggerFactory);
             }).AsSelf().As<DbContext>().InstancePerLifetimeScope();
-            builder.RegisterType<AccountManagementService>().As<IAccountManagementService>();
+
+            var infrastructureAssembly = typeof(AccountManagementContext).Assembly;
+
+            builder.RegisterAssemblyTypes(infrastructureAssembly)
+                .Where(type => type.Name.EndsWith("Repository"))
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope()
+                .FindConstructorsWith(new AllConstructorFinder());
+
+            builder.Register(cfg =>
+            {
+                return new AccountManagementService(cfg.Resolve<IAccountRepository>(), cfg.Resolve<IUserRepository>());
+            }).AsSelf().As<IAccountManagementService>().InstancePerLifetimeScope();
         }
     }
 }

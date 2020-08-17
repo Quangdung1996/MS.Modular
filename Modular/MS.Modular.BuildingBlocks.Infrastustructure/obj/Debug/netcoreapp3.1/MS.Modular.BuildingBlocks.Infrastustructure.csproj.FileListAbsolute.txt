@@ -11,3 +11,17 @@ D:\NET\MS.Modular\MS.Modular.BuildingBlocks.Infrastustructure\bin\Debug\netcorea
 D:\NET\MS.Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.csproj.CopyComplete
 D:\NET\MS.Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.dll
 D:\NET\MS.Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.pdb
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.deps.json
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.dll
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.pdb
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.dll
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Domain.dll
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Application.pdb
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\bin\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Domain.pdb
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.csprojAssemblyReference.cache
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.AssemblyInfoInputs.cache
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.AssemblyInfo.cs
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.csproj.CoreCompileInputs.cache
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.csproj.CopyComplete
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.dll
+D:\NET\New folder\MS.Modular\Modular\MS.Modular.BuildingBlocks.Infrastustructure\obj\Debug\netcoreapp3.1\MS.Modular.BuildingBlocks.Infrastustructure.pdb
