@@ -17,6 +17,7 @@ namespace MS.Modular
     {
         private static Serilog.ILogger _logger;
         private static ILogger _loggerForApi;
+
         public Startup(IWebHostEnvironment env)
         {
             ConfigureLogger();

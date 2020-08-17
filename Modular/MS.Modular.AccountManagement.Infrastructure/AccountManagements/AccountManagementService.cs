@@ -1,11 +1,13 @@
-﻿using MS.Modular.AccountManagement.Domain;
+﻿using FluentValidation.Results;
+using Microsoft.EntityFrameworkCore.Internal;
+using MS.Modular.AccountManagement.Domain;
 using MS.Modular.AccountManagement.Domain.AccountManagements;
 using MS.Modular.AccountManagement.Domain.Users;
 using MS.Modular.AccountManagement.Infrastructure.Validations;
 using MS.Modular.BuildingBlocks.Domain;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
@@ -14,7 +16,8 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
     {
         private readonly IAccountRepository _accountRepository;
         private readonly IUserRepository _userRepository;
-        public AccountManagementService(IAccountRepository accountRepository,IUserRepository userRepository)
+
+        public AccountManagementService(IAccountRepository accountRepository, IUserRepository userRepository)
         {
             _accountRepository = accountRepository;
             _userRepository = userRepository;
@@ -22,8 +25,8 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
 
         public async Task<ReturnResponse<AccountDataTransformation>> LoginAsync(AccountDataTransformation accountDataTransformation)
         {
-            var returnResponse =new ReturnResponse<AccountDataTransformation>();
-            var validator = new CreateAccountTransformtionValidator(_userRepository);
+            var returnResponse = new ReturnResponse<AccountDataTransformation>();
+            var validator = new CreateAccountTransformtionValidator();
             var result = await validator.ValidateAsync(accountDataTransformation);
             return default;
         }
@@ -31,9 +34,15 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
         public async Task<ReturnResponse<AccountDataTransformation>> RegisterAsync(AccountDataTransformation accountDataTransformation)
         {
             var returnResponse = new ReturnResponse<AccountDataTransformation>();
-            var validator = new CreateAccountTransformtionValidator(_userRepository);
-            var result = await validator.ValidateAsync(accountDataTransformation);
-            throw new NotImplementedException();
+            var validator = new CreateAccountTransformtionValidator();
+            ValidationResult validatorResult = await validator.ValidateAsync(accountDataTransformation);
+            if (validatorResult.Errors.Any())
+            {
+                returnResponse.Error = validatorResult.Errors.Join().ToString();
+                returnResponse.Successful = false;
+                return returnResponse;
+            }
+            return returnResponse;
         }
 
         public Task<ReturnResponse<AccountDataTransformation>> UpdateUserAsync(AccountDataTransformation accountDataTransformation)

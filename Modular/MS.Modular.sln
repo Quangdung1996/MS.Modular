@@ -31,10 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.AccountManagemen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.AccountManagement.Application", "MS.Modular.AccountManagement.Application\MS.Modular.AccountManagement.Application.csproj", "{2BC9A2A1-6FD5-4A15-B896-2186346990FE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{8480CCD6-BF5D-47BB-BC67-2C09DEF4747E}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\Administrator\Documents\ModulaDb.sql = C:\Users\Administrator\Documents\ModulaDb.sql
-	EndProjectSection
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{FEB44D50-C472-4EB6-A1D2-5ED91F8254C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +75,12 @@ Global
 		{2BC9A2A1-6FD5-4A15-B896-2186346990FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BC9A2A1-6FD5-4A15-B896-2186346990FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BC9A2A1-6FD5-4A15-B896-2186346990FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB44D50-C472-4EB6-A1D2-5ED91F8254C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB44D50-C472-4EB6-A1D2-5ED91F8254C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB44D50-C472-4EB6-A1D2-5ED91F8254C1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FEB44D50-C472-4EB6-A1D2-5ED91F8254C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB44D50-C472-4EB6-A1D2-5ED91F8254C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB44D50-C472-4EB6-A1D2-5ED91F8254C1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

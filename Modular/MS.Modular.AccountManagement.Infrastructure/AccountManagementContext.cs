@@ -30,5 +30,6 @@ namespace MS.Modular.AccountManagement.Infrastructure
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UserTypeEntityTypeConfiguration());
         }
+
     }
 }
