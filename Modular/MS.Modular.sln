@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.Modular", "MS.Modular\MS.Modular.csproj", "{97951DBB-A4CE-487D-A4C3-EC0834713BD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular", "MS.Modular\MS.Modular.csproj", "{97951DBB-A4CE-487D-A4C3-EC0834713BD9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{EE2EFDA7-0902-4B5C-B47E-417113D671E4}"
 EndProject
@@ -11,25 +11,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{28BD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoggingManagement", "LoggingManagement", "{24BAD49F-FB30-4DE0-B253-D714C0F9DC2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.Modular.LoggingManagement.Infrastructure", "MS.Modular.LoggingManagement.Infrastructure\MS.Modular.LoggingManagement.Infrastructure.csproj", "{93A240C1-7BF7-4D30-92A9-5E4AE47A2CBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.LoggingManagement.Infrastructure", "MS.Modular.LoggingManagement.Infrastructure\MS.Modular.LoggingManagement.Infrastructure.csproj", "{93A240C1-7BF7-4D30-92A9-5E4AE47A2CBB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{DD3074FA-A5E9-4EFF-9DB9-FAB21E47C2CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.Modular.BuildingBlocks.Domain", "MS.Modular.BuildingBlocks.Domain\MS.Modular.BuildingBlocks.Domain.csproj", "{26B300FA-F6B7-4198-8275-0F185B55DA93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.BuildingBlocks.Domain", "MS.Modular.BuildingBlocks.Domain\MS.Modular.BuildingBlocks.Domain.csproj", "{26B300FA-F6B7-4198-8275-0F185B55DA93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.Modular.BuildingBlocks.Infrastustructure", "MS.Modular.BuildingBlocks.Infrastustructure\MS.Modular.BuildingBlocks.Infrastustructure.csproj", "{3717F3A4-30E0-4287-82CC-7E61FC6B9425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.BuildingBlocks.Infrastustructure", "MS.Modular.BuildingBlocks.Infrastustructure\MS.Modular.BuildingBlocks.Infrastustructure.csproj", "{3717F3A4-30E0-4287-82CC-7E61FC6B9425}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.Modular.BuildingBlocks.EventBus", "MS.Modular.BuildingBlocks.EventBus\MS.Modular.BuildingBlocks.EventBus.csproj", "{CA9A97A1-B9D0-4BBF-984A-2EDB8F16D40B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.BuildingBlocks.EventBus", "MS.Modular.BuildingBlocks.EventBus\MS.Modular.BuildingBlocks.EventBus.csproj", "{CA9A97A1-B9D0-4BBF-984A-2EDB8F16D40B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccountManagement", "AccountManagement", "{E4D0B81C-A444-4CD5-B281-5485679F4C27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.Modular.AccountManagement.Infrastructure", "MS.Modular.AccountManagement.Infrastructure\MS.Modular.AccountManagement.Infrastructure.csproj", "{606ED90E-7088-4A63-9663-65E9403F2279}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.AccountManagement.Infrastructure", "MS.Modular.AccountManagement.Infrastructure\MS.Modular.AccountManagement.Infrastructure.csproj", "{606ED90E-7088-4A63-9663-65E9403F2279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.Modular.BuildingBlocks.Application", "MS.Modular.BuildingBlocks.Application\MS.Modular.BuildingBlocks.Application.csproj", "{7C4947A2-3494-4A12-88AF-B86A220421C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.BuildingBlocks.Application", "MS.Modular.BuildingBlocks.Application\MS.Modular.BuildingBlocks.Application.csproj", "{7C4947A2-3494-4A12-88AF-B86A220421C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.Modular.AccountManagement.Domain", "MS.Modular.AccountManagement.Domain\MS.Modular.AccountManagement.Domain.csproj", "{0C1998A9-D37D-494B-8E9F-A70D867A903C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.AccountManagement.Domain", "MS.Modular.AccountManagement.Domain\MS.Modular.AccountManagement.Domain.csproj", "{0C1998A9-D37D-494B-8E9F-A70D867A903C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS.Modular.AccountManagement.Application", "MS.Modular.AccountManagement.Application\MS.Modular.AccountManagement.Application.csproj", "{2BC9A2A1-6FD5-4A15-B896-2186346990FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS.Modular.AccountManagement.Application", "MS.Modular.AccountManagement.Application\MS.Modular.AccountManagement.Application.csproj", "{2BC9A2A1-6FD5-4A15-B896-2186346990FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{8480CCD6-BF5D-47BB-BC67-2C09DEF4747E}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Administrator\Documents\ModulaDb.sql = C:\Users\Administrator\Documents\ModulaDb.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
