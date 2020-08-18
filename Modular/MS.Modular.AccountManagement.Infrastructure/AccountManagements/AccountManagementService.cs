@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using AutoMapper;
+using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore.Internal;
 using MS.Modular.AccountManagement.Domain;
 using MS.Modular.AccountManagement.Domain.AccountManagements;
@@ -8,7 +9,6 @@ using MS.Modular.AccountManagement.Infrastructure.Validations;
 using MS.Modular.BuildingBlocks.Domain;
 using System;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
@@ -17,11 +17,15 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
     {
         private readonly IAccountRepository _accountRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
-        public AccountManagementService(IAccountRepository accountRepository, IUserRepository userRepository)
+        public AccountManagementService(IAccountRepository accountRepository,
+                                        IUserRepository userRepository,
+                                        IMapper mapper)
         {
             _accountRepository = accountRepository;
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
         public async Task<ReturnResponse<AccountDataTransformation>> LoginAsync(AccountDataTransformation accountDataTransformation)
@@ -32,9 +36,9 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
             return default;
         }
 
-        public async Task<ReturnResponse<AccountDataTransformation>> RegisterAsync(AccountDataTransformation accountDataTransformation)
+        public async Task<ReturnResponse<User>> RegisterAsync(AccountDataTransformation accountDataTransformation)
         {
-            var returnResponse = new ReturnResponse<AccountDataTransformation>();
+            var returnResponse = new ReturnResponse<User>();
             var validator = new CreateAccountTransformtionValidator();
             ValidationResult validatorResult = await validator.ValidateAsync(accountDataTransformation);
             if (validatorResult.Errors.Any())
@@ -43,12 +47,21 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
                 returnResponse.Successful = false;
                 return returnResponse;
             }
-            var account = new Account()
+            var account = new Account(accountDataTransformation.CompanyName, 1);
+            var responseAccount = await _accountRepository.CreateAccountAsync(account);
+            returnResponse.Successful = responseAccount.Successful;
+            returnResponse.Error = responseAccount.Error;
+
+            if (responseAccount.Successful)
             {
-                Name = accountDataTransformation.CompanyName
-            };
-            var result=await _accountRepository.CreateAccountAsync(account);
-            return default;
+                var user = _mapper.Map<AccountDataTransformation, User>(accountDataTransformation);
+                user.UserTypeId = 1;
+                var responseUser = await _userRepository.CreateUserAsync(user);
+                returnResponse.Data = responseUser.Data;
+                returnResponse.Successful = responseUser.Successful;
+                returnResponse.Error = responseUser.Error;
+            }
+            return returnResponse;
         }
 
         public Task<ReturnResponse<AccountDataTransformation>> UpdateUserAsync(AccountDataTransformation accountDataTransformation)

@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
@@ -48,10 +49,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Configuration.DataAccess
                 .InstancePerLifetimeScope()
                 .FindConstructorsWith(new AllConstructorFinder());
 
-            builder.Register(cfg =>
-            {
-                return new AccountManagementService(cfg.Resolve<IAccountRepository>(), cfg.Resolve<IUserRepository>());
-            }).AsSelf().As<IAccountManagementService>().InstancePerLifetimeScope();
+            builder.RegisterType<AccountManagementService>().AsSelf().As<IAccountManagementService>().InstancePerLifetimeScope();
         }
     }
 }

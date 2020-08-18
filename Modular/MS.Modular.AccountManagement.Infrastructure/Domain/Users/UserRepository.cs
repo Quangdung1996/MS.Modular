@@ -1,10 +1,8 @@
-﻿using MS.Modular.AccountManagement.Domain;
-using MS.Modular.AccountManagement.Domain.Accounts;
+﻿using Microsoft.EntityFrameworkCore;
 using MS.Modular.AccountManagement.Domain.Users;
 using MS.Modular.BuildingBlocks.Domain;
+using MS.Modular.BuildingBlocks.Domain.Extenstions;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MS.Modular.AccountManagement.Infrastructure.Domain.Users
@@ -12,19 +10,55 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Users
     internal class UserRepository : IUserRepository
     {
         private readonly AccountManagementContext _accountManagementContext;
+
         internal UserRepository(AccountManagementContext accountManagementContext)
         {
             _accountManagementContext = accountManagementContext;
         }
 
-        public Task<ReturnResponse<User>> CreateUserAsync(User user)
+        public async Task<ReturnResponse<User>> CreateUserAsync(User user)
         {
-            throw new NotImplementedException();
+            var returnResponse = new ReturnResponse<User>();
+            try
+            {
+                var checkEmailExists = await this.GetUserByEmailAddressAsync(user.EmailAddress).ConfigureAwait(false);
+                if (checkEmailExists.Data != null)
+                {
+                    user.EmailAddress = AccountExetions.ToLowerEmail(user.EmailAddress);
+                    await _accountManagementContext.Users.AddAsync(user);
+                    await _accountManagementContext.SaveChangesAsync();
+                    returnResponse.Data = user;
+                    returnResponse.Successful = true;
+                }
+                else
+                {
+                    returnResponse.Error = $"Email {user.EmailAddress} exists!";
+                    returnResponse.Successful = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                returnResponse.Successful = false;
+                returnResponse.Error = ex.Message.ToString();
+            }
+            return returnResponse;
         }
 
-        public Task<ReturnResponse<User>> GetUserByEmailAddressAsync(string emailAddress)
+        public async Task<ReturnResponse<User>> GetUserByEmailAddressAsync(string emailAddress)
         {
-            throw new NotImplementedException();
+            var returnResponse = new ReturnResponse<User>();
+            try
+            {
+                emailAddress = string.IsNullOrEmpty(emailAddress) ? AccountExetions.ToLowerEmail(emailAddress) : string.Empty;
+                returnResponse.Data = await _accountManagementContext.Users.FirstOrDefaultAsync(x => x.Equals(emailAddress));
+                returnResponse.Successful = true;
+            }
+            catch (Exception ex)
+            {
+                returnResponse.Successful = false;
+                returnResponse.Error = ex.Message.ToString();
+            }
+            return returnResponse;
         }
 
         public Task<ReturnResponse<User>> GetUserByUserIdAsync(int userId)

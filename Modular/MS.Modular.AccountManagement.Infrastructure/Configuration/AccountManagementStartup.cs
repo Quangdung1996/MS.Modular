@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using MS.Modular.AccountManagement.Infrastructure.Configuration.DataAccess;
 using MS.Modular.AccountManagement.Infrastructure.Configuration.Logging;
+using MS.Modular.AccountManagement.Infrastructure.Configuration.Mapping;
 using MS.Modular.AccountManagement.Infrastructure.Configuration.Mediation;
 using Serilog;
 using Serilog.AspNetCore;
@@ -28,6 +29,8 @@ namespace MS.Modular.AccountManagement.Infrastructure.Configuration
             containerBuilder.RegisterModule(new DataAccessModule(connectionString, loggerFactory));
 
             containerBuilder.RegisterModule(new MediatorModule());
+
+            containerBuilder.RegisterModule(new MappingProfileModule());
 
             _container = containerBuilder.Build();
 

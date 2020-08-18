@@ -6,7 +6,7 @@ namespace MS.Modular.AccountManagement.Domain
 {
     public interface IAccountRepository
     {
-        Task<ReturnResponse<Account>> CreateAccountAsync(Account account);
+        Task<ReturnResponse<int>> CreateAccountAsync(Account account);
 
         Task<ReturnResponse<bool>> UpdateAccountAsync(Account account);
 

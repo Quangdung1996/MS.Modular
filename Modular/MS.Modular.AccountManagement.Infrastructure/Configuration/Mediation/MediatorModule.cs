@@ -45,17 +45,8 @@ namespace MS.Modular.AccountManagement.Infrastructure.Configuration.Mediation
 
             builder.Register<ServiceFactory>(ctx =>
             {
-                try
-                {
                     var c = ctx.Resolve<IComponentContext>();
                     return t => c.Resolve(t);
-                }
-                catch (Exception ex)
-                {
-
-                    throw;
-                }
-        
             }).InstancePerLifetimeScope();
         }
 

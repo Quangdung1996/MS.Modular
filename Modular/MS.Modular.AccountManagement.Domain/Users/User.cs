@@ -30,5 +30,12 @@ namespace MS.Modular.AccountManagement.Domain.Users
         public Account Account { get; set; }
 
         public UserType UserType { get; set; }
+
+        public User()
+        {
+            this.DateCreated = DateTime.Now;
+            this.DateUpdated = DateTime.Now;
+            this.DateLastLogin = DateTime.Now;
+        }
     }
 }

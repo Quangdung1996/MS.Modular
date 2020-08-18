@@ -15,19 +15,19 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Accounts
             _accountManagementContext = accountManagementContext;
         }
 
-        public async Task<ReturnResponse<Account>> CreateAccountAsync(Account account)
+        public async Task<ReturnResponse<int>> CreateAccountAsync(Account account)
         {
-            var returnResponse = new ReturnResponse<Account>();
+            var returnResponse = new ReturnResponse<int>();
             try
             {
                 await _accountManagementContext.Accounts.AddAsync(account);
                 await  _accountManagementContext.SaveChangesAsync();
-                returnResponse.Data = account;
+                returnResponse.Data = account.AccountId;
                 returnResponse.Successful = true;
             }
             catch (Exception ex)
             {
-                returnResponse.Data = account;
+                returnResponse.Data = 0;
                 returnResponse.Error = ex.Message.ToString();
             }
             return returnResponse;
