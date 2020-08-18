@@ -11,7 +11,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.UserTypes
     {
         public void Configure(EntityTypeBuilder<UserType> builder)
         {
-            builder.ToTable("UserType", "administration");
+            builder.ToTable("UserType");
             builder.HasKey(x => x.UserTypeId);
         }
     }

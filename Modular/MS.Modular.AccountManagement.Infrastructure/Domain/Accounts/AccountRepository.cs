@@ -21,6 +21,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Accounts
             try
             {
                 await _accountManagementContext.Accounts.AddAsync(account);
+                await  _accountManagementContext.SaveChangesAsync();
                 returnResponse.Data = account;
                 returnResponse.Successful = true;
             }

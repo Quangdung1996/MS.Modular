@@ -8,7 +8,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Accounts
     {
         public void Configure(EntityTypeBuilder<Account> builder)
         {
-            builder.ToTable("Accounts", "administration");
+            builder.ToTable("Accounts");
 
             builder.HasKey(x => x.AccountId);
         }

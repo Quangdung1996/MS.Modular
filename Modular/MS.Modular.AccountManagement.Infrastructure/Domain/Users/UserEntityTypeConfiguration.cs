@@ -9,23 +9,9 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.AccountDataTransfor
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("AccountDataTransformations", "administration");
+            builder.ToTable("AccountDataTransformations");
 
             builder.HasKey(x => x.UserId);
-
-            builder.OwnsOne<Account>("Account", b =>
-            {
-                b.Property(p => p.AccountId).HasColumnName("AccountId");
-                b.Property(p => p.DateCreated).HasColumnName("DateCreated");
-                b.Property(p => p.DateUpdated).HasColumnName("DateUpdated");
-                b.Property(p => p.Name).HasColumnName("Name");
-                b.Property(p => p.PurchasedApplications).HasColumnName("PurchasedApplications");
-            });
-            builder.OwnsOne<UserType>("UserType", b =>
-            {
-                b.Property(p => p.UserTypeId).HasColumnName("UserTypeId");
-                b.Property(p => p.Description).HasColumnName("Description");
-            });
         }
     }
 }

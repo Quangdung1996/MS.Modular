@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Internal;
 using MS.Modular.AccountManagement.Domain;
 using MS.Modular.AccountManagement.Domain.AccountManagements;
+using MS.Modular.AccountManagement.Domain.Accounts;
 using MS.Modular.AccountManagement.Domain.Users;
 using MS.Modular.AccountManagement.Infrastructure.Validations;
 using MS.Modular.BuildingBlocks.Domain;
@@ -42,7 +43,12 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
                 returnResponse.Successful = false;
                 return returnResponse;
             }
-            return returnResponse;
+            var account = new Account()
+            {
+                Name = accountDataTransformation.CompanyName
+            };
+            var result=await _accountRepository.CreateAccountAsync(account);
+            return default;
         }
 
         public Task<ReturnResponse<AccountDataTransformation>> UpdateUserAsync(AccountDataTransformation accountDataTransformation)

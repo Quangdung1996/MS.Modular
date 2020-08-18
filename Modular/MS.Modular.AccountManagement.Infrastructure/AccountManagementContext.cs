@@ -26,10 +26,19 @@ namespace MS.Modular.AccountManagement.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>()
+                       .HasOne(s => s.Account)
+                       .WithOne()
+                       .HasForeignKey<User>(s => s.AccountId);
+
+            modelBuilder.Entity<User>()
+                     .HasOne(s => s.UserType)
+                     .WithOne()
+                     .HasForeignKey<User>(s => s.UserTypeId);
+
             modelBuilder.ApplyConfiguration(new AccountEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UserTypeEntityTypeConfiguration());
         }
-
     }
 }
