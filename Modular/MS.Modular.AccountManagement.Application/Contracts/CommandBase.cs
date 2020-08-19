@@ -1,5 +1,6 @@
 ﻿using MS.Modular.AccountManagement.Domain.AccountManagements;
 using MS.Modular.AccountManagement.Domain.Accounts;
+using MS.Modular.AccountManagement.Domain.ViewModels;
 using MS.Modular.BuildingBlocks.Domain;
 
 namespace MS.Modular.AccountManagement.Application.Contracts
@@ -8,14 +9,16 @@ namespace MS.Modular.AccountManagement.Application.Contracts
     {
         protected CommandBase()
         {
-            this.ReturnResponse = new ReturnResponse<AccountDataTransformation>();
+            this.ReturnResponse = new ReturnResponse<RegisterAccountViewModel>();
         }
 
-        protected CommandBase(ReturnResponse<AccountDataTransformation> returnRespons)
+        protected CommandBase(ReturnResponse<RegisterAccountViewModel> returnResponse)
         {
-            ReturnResponse = returnRespons;
+            ReturnResponse = returnResponse;
         }
 
-        public ReturnResponse<AccountDataTransformation> ReturnResponse { get; }
+
+        public ReturnResponse<RegisterAccountViewModel> ReturnResponse { get; }
+
     }
 }

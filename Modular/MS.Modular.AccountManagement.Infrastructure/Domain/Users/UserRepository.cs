@@ -22,9 +22,9 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Users
             try
             {
                 var checkEmailExists = await this.GetUserByEmailAddressAsync(user.EmailAddress).ConfigureAwait(false);
-                if (checkEmailExists.Data != null)
+                if (checkEmailExists.Data is null)
                 {
-                    user.EmailAddress = AccountExetions.ToLowerEmail(user.EmailAddress);
+                    user.EmailAddress = AccountExetions.ToLower(user.EmailAddress);
                     await _accountManagementContext.Users.AddAsync(user);
                     await _accountManagementContext.SaveChangesAsync();
                     returnResponse.Data = user;
@@ -49,7 +49,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Users
             var returnResponse = new ReturnResponse<User>();
             try
             {
-                emailAddress = string.IsNullOrEmpty(emailAddress) ? string.Empty : AccountExetions.ToLowerEmail(emailAddress);
+                emailAddress = string.IsNullOrEmpty(emailAddress) ? string.Empty : AccountExetions.ToLower(emailAddress);
                 returnResponse.Data = await _accountManagementContext.Users.FirstOrDefaultAsync(x => x.EmailAddress.Equals(emailAddress));
                 returnResponse.Successful = true;
             }

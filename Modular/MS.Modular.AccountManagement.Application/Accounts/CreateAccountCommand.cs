@@ -1,18 +1,17 @@
-﻿using MediatR;
-using MS.Modular.AccountManagement.Application.Contracts;
-using MS.Modular.AccountManagement.Domain.AccountManagements;
+﻿using MS.Modular.AccountManagement.Application.Contracts;
 using MS.Modular.AccountManagement.Domain.Accounts;
+using MS.Modular.AccountManagement.Domain.ViewModels;
 using MS.Modular.BuildingBlocks.Domain;
 
 namespace MS.Modular.AccountManagement.Application.Accounts
 {
-    public class CreateAccountCommand : CommandBase<ReturnResponse<AccountDataTransformation>>
+    public class CreateAccountCommand : CommandBase<ReturnResponse<RegisterAccountViewModel>>
     {
-        public CreateAccountCommand(AccountDataTransformation accountDataTransformation)
+        public CreateAccountCommand(CreateAccount createAccount)
         {
-            AccountDataTransformation = accountDataTransformation;
+            CreateAccount = createAccount;
         }
 
-        internal AccountDataTransformation AccountDataTransformation { get; }
+        internal CreateAccount CreateAccount { get; }
     }
 }

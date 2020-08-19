@@ -14,7 +14,7 @@ namespace MS.Modular.AccountManagement.Domain.Accounts
 
         public int PurchasedApplications { get; private set; }
 
-        public Account()
+        private Account()
         {
             this.DateCreated = DateTime.Now;
             this.DateUpdated = DateTime.Now;

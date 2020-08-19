@@ -1,11 +1,12 @@
 ﻿using FluentValidation;
 using MS.Modular.AccountManagement.Domain.AccountManagements;
+using MS.Modular.AccountManagement.Domain.Accounts;
 using MS.Modular.AccountManagement.Domain.Users;
 using System.Threading.Tasks;
 
 namespace MS.Modular.AccountManagement.Infrastructure.Validations
 {
-    internal class CreateAccountTransformtionValidator : AbstractValidator<AccountDataTransformation>
+    internal class CreateAccountTransformtionValidator : AbstractValidator<CreateAccount>
     {
         private readonly IUserRepository _userRepository;
 

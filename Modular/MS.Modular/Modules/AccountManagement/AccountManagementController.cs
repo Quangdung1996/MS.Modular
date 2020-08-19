@@ -2,6 +2,7 @@
 using MS.Modular.AccountManagement.Application.Accounts;
 using MS.Modular.AccountManagement.Application.Contracts;
 using MS.Modular.AccountManagement.Domain.AccountManagements;
+using MS.Modular.AccountManagement.Domain.Accounts;
 using System.Threading.Tasks;
 
 namespace MS.Modular.Modules.AccountManagement
@@ -19,9 +20,9 @@ namespace MS.Modular.Modules.AccountManagement
 
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> RegisterUserAsync([FromBody] AccountDataTransformation accountDataTransformation)
+        public async Task<IActionResult> RegisterUserAsync([FromBody] CreateAccount createAccount)
         {
-            var result = await _accountManagementModule.ExecuteCommandAsync(new CreateAccountCommand(accountDataTransformation));
+            var result = await _accountManagementModule.ExecuteCommandAsync(new CreateAccountCommand(createAccount));
             return Ok(result);
         }
     }

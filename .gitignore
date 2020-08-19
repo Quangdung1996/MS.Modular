@@ -427,3 +427,10 @@
 /Modular/Database/Database.jfm
 /Modular/.vs/MS.Modular/DesignTimeBuild/.dtbcache.v2
 /Modular/.vs/MS.Modular/v16/.suo
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+/Modular/MS.Modular/logs/logs-20200819
+/Modular/.vs/MS.Modular/DesignTimeBuild/.dtbcache.v2
+/Modular/.vs/MS.Modular/v16/.suo

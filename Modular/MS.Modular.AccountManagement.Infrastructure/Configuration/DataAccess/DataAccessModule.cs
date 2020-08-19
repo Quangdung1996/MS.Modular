@@ -1,12 +1,11 @@
 ﻿using Autofac;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
-using MS.Modular.AccountManagement.Domain;
 using MS.Modular.AccountManagement.Domain.AccountManagements;
-using MS.Modular.AccountManagement.Domain.Users;
+using MS.Modular.AccountManagement.Domain.Redis;
 using MS.Modular.AccountManagement.Infrastructure.AccountManagements;
+using MS.Modular.AccountManagement.Infrastructure.Domain.Redis;
 using MS.Modular.BuildingBlocks.Application.Data;
 using MS.Modular.BuildingBlocks.Infrastustructure;
 
@@ -18,6 +17,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Configuration.DataAccess
         private readonly ILoggerFactory _loggerFactory;
 
         internal DataAccessModule(string databaseConnectionString, ILoggerFactory loggerFactory)
+
         {
             _databaseConnectionString = databaseConnectionString;
             _loggerFactory = loggerFactory;
@@ -48,6 +48,8 @@ namespace MS.Modular.AccountManagement.Infrastructure.Configuration.DataAccess
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope()
                 .FindConstructorsWith(new AllConstructorFinder());
+
+            builder.RegisterType<RedisService>().AsSelf().As<IRedisService>().InstancePerLifetimeScope();
 
             builder.RegisterType<AccountManagementService>().AsSelf().As<IAccountManagementService>().InstancePerLifetimeScope();
         }

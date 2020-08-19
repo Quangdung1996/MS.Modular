@@ -11,7 +11,7 @@ namespace MS.Modular.AccountManagement.Domain.Users
 
         public string Password { get; set; }
 
-        public string PasswordSalt { get; set; }
+        public string HashSalt { get; set; }
 
         public string FirstName { get; set; }
 

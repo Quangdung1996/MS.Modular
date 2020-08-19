@@ -37,6 +37,10 @@ namespace MS.Modular
             services.AddControllers();
             services.AddSwaggerDocumentation();
 
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = Configuration.GetConnectionString("Redis");
+            });
             return CreateAutofacServiceProvider(services);
         }
 
@@ -68,6 +72,7 @@ namespace MS.Modular
             containerBuilder.RegisterModule(new AccountManagementAutofacModule());
             var container = containerBuilder.Build();
             var connectionString = Configuration.GetConnectionString("Default");
+            var redisConnection = Configuration.GetConnectionString("Redis");
             AccountManagementStartup.Initialize(connectionString, _logger);
             return new AutofacServiceProvider(container);
         }
