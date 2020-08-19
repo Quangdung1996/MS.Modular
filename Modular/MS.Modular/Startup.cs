@@ -2,9 +2,11 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using MS.Modular.AccountManagement.Domain.Dto;
 using MS.Modular.AccountManagement.Infrastructure.Configuration;
 using MS.Modular.Modules.AccountManagement;
@@ -48,7 +50,6 @@ namespace MS.Modular
                         configuration.GetSection("JwtConfig").Bind(settings);
                     });
 
-            services.AddTransient<ITokenService, MS.Modular.AccountManagement.Infrastructure.Domain.Token.TokenService>();
             return CreateAutofacServiceProvider(services);
         }
 
@@ -79,9 +80,14 @@ namespace MS.Modular
             containerBuilder.Populate(services);
             containerBuilder.RegisterModule(new AccountManagementAutofacModule());
             var container = containerBuilder.Build();
+            var serviceProvider = services.BuildServiceProvider();
+            var jwtOption = serviceProvider.GetService<IOptions<JwtOptions>>();
+            var distributedCacheService = serviceProvider.GetService<IDistributedCache>();
             var connectionString = Configuration.GetConnectionString("Default");
-            var redisConnection = Configuration.GetConnectionString("Redis");
-            AccountManagementStartup.Initialize(connectionString, _logger);
+            AccountManagementStartup.Initialize(connectionString,
+                                                jwtOption,
+                                                distributedCacheService,
+                                                _logger);
             return new AutofacServiceProvider(container);
         }
 

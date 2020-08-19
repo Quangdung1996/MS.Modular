@@ -33,6 +33,10 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Token
             _options = options.Value;
             _redisService = redisService;
         }
+        //public TokenService(IRedisService redisService)
+        //{
+        //    _redisService = redisService;
+        //}
 
         public async Task<TokenInfo> GenerateTokenAsync(User user)
         {

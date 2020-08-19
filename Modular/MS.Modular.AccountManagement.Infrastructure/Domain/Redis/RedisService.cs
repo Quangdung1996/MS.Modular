@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace MS.Modular.AccountManagement.Infrastructure.Domain.Redis
 {
-    public class RedisService : IRedisService
+    internal class RedisService : IRedisService
     {
         private readonly IDistributedCache _distributedCache;
 
-        public RedisService(IDistributedCache distributedCache)
+        internal RedisService(IDistributedCache distributedCache)
         {
             _distributedCache = distributedCache;
         }
+    
 
         public async Task<T> GetAsync<T>(string key)
         {
