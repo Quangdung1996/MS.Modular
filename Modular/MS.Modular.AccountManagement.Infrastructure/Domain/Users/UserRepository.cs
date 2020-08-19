@@ -49,8 +49,8 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Users
             var returnResponse = new ReturnResponse<User>();
             try
             {
-                emailAddress = string.IsNullOrEmpty(emailAddress) ? AccountExetions.ToLowerEmail(emailAddress) : string.Empty;
-                returnResponse.Data = await _accountManagementContext.Users.FirstOrDefaultAsync(x => x.Equals(emailAddress));
+                emailAddress = string.IsNullOrEmpty(emailAddress) ? string.Empty : AccountExetions.ToLowerEmail(emailAddress);
+                returnResponse.Data = await _accountManagementContext.Users.FirstOrDefaultAsync(x => x.EmailAddress.Equals(emailAddress));
                 returnResponse.Successful = true;
             }
             catch (Exception ex)

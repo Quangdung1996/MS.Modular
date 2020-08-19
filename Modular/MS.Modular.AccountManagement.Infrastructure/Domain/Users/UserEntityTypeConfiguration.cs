@@ -9,7 +9,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.AccountDataTransfor
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("AccountDataTransformations");
+            builder.ToTable("Users");
 
             builder.HasKey(x => x.UserId);
         }
