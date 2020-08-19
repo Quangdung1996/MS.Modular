@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MS.Modular.AccountManagement.Infrastructure.Validations
 {
-    internal class CreateAccountTransformtionValidator : AbstractValidator<CreateAccount>
+    internal class CreateAccountValidator : AbstractValidator<CreateAccount>
     {
         private readonly IUserRepository _userRepository;
 
-        public CreateAccountTransformtionValidator(IUserRepository userRepository)
+        public CreateAccountValidator(IUserRepository userRepository)
         {
             _userRepository = userRepository;
             RuleFor(m => m.CompanyName).NotEmpty().WithMessage("First Name is a required field.");

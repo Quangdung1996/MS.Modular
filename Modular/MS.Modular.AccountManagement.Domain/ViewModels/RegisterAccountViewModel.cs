@@ -5,5 +5,9 @@ namespace MS.Modular.AccountManagement.Domain.ViewModels
     public class RegisterAccountViewModel : EntityModel
     {
         public TokenInfo TokenInfo { get; set; }
+        public RegisterAccountViewModel()
+        {
+            TokenInfo = new TokenInfo();
+        }
     }
 }

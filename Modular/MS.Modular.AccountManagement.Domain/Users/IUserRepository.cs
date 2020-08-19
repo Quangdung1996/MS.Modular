@@ -1,4 +1,5 @@
-﻿using MS.Modular.BuildingBlocks.Domain;
+﻿using MS.Modular.AccountManagement.Domain.Accounts;
+using MS.Modular.BuildingBlocks.Domain;
 using System.Threading.Tasks;
 
 namespace MS.Modular.AccountManagement.Domain.Users
@@ -12,5 +13,6 @@ namespace MS.Modular.AccountManagement.Domain.Users
         Task<ReturnResponse<bool>> UpdateUserAsync(User user);
 
         Task<ReturnResponse<User>> GetUserByUserIdAsync(int userId);
+        Task<User> GetAndValidateAsync(AccountSignIn accountSignIn);
     }
 }

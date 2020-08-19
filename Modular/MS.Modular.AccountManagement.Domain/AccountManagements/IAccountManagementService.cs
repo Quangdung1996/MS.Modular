@@ -10,7 +10,7 @@ namespace MS.Modular.AccountManagement.Domain.AccountManagements
     {
         Task<ReturnResponse<RegisterAccountViewModel>> RegisterAsync(CreateAccount createAccount);
 
-        Task<ReturnResponse<AccountDataTransformation>> LoginAsync(AccountDataTransformation accountDataTransformation);
+        Task<ReturnResponse<RegisterAccountViewModel>> LoginAsync(AccountSignIn accountSignIn);
 
         Task<ReturnResponse<AccountDataTransformation>> UpdateUserAsync(AccountDataTransformation accountDataTransformation);
 

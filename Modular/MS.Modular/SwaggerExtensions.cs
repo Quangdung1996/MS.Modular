@@ -29,7 +29,7 @@ namespace MS.Modular
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-                    Name = "Authorization",
+                    Name = "",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey
                 });

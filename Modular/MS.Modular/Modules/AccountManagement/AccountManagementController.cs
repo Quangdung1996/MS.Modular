@@ -25,5 +25,14 @@ namespace MS.Modular.Modules.AccountManagement
             var result = await _accountManagementModule.ExecuteCommandAsync(new CreateAccountCommand(createAccount));
             return Ok(result);
         }
+
+        [HttpPost]
+        [Route("Login")]
+        public async Task<IActionResult> LoginAccountAsync([FromBody] AccountSignIn accountSignIn)
+        {
+            var result = await _accountManagementModule.ExecuteCommandAsync(new LoginAccountCommand(accountSignIn));
+            return Ok(result);
+
+        }
     }
 }

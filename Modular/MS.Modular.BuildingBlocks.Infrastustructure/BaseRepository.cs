@@ -77,14 +77,14 @@ namespace MS.Modular.BuildingBlocks.Infrastustructure
                     using (var conn = CreateConnection())
                     {
                         returnResponse.Data = await conn.QuerySingleAsync(query, parameters, commandType: commandType);
-                        returnResponse.Successful = true;
+                        returnResponse.Succeeded = true;
                         return returnResponse;
                     }
                 });
             }
             catch (Exception ex)
             {
-                returnResponse.Successful = false;
+                returnResponse.Succeeded = false;
                 returnResponse.Error = ex.Message.ToString();
                 return returnResponse;
             }
@@ -136,14 +136,14 @@ namespace MS.Modular.BuildingBlocks.Infrastustructure
                     using (var conn = CreateConnection())
                     {
                         returnResponse.Data = await conn.QueryFirstOrDefaultAsync<T>(query, parameters, commandType: commandType);
-                        returnResponse.Successful = true;
+                        returnResponse.Succeeded = true;
                         return returnResponse;
                     }
                 });
             }
             catch (Exception ex)
             {
-                returnResponse.Successful = false;
+                returnResponse.Succeeded = false;
                 returnResponse.Error = ex.Message.ToString();
                 return returnResponse;
             }
@@ -159,14 +159,14 @@ namespace MS.Modular.BuildingBlocks.Infrastustructure
                     using (var conn = CreateConnection())
                     {
                         returnResponse.Data = (await conn.ExecuteAsync(query, parameters, commandType: commandType)) > 0;
-                        returnResponse.Successful = true;
+                        returnResponse.Succeeded = true;
                         return returnResponse;
                     }
                 });
             }
             catch (Exception ex)
             {
-                returnResponse.Successful = false;
+                returnResponse.Succeeded = false;
                 returnResponse.Error = ex.Message.ToString();
                 return returnResponse;
             }

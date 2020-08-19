@@ -446,3 +446,6 @@
 /Modular/MS.Modular/bin/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Diagnostics.PerformanceCounter.dll
 /Modular/MS.Modular/bin/netcoreapp3.1/StackExchange.Redis.dll
 /Modular/MS.Modular/bin/netcoreapp3.1/System.Diagnostics.PerformanceCounter.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

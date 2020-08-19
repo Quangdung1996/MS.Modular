@@ -6,9 +6,11 @@ namespace MS.Modular.BuildingBlocks.Domain.Extenstions
 {
     public static class AccountExetions
     {
-        public static string ToLower(string text)
+        public static void ToLowerEmail(this string text)
         {
-            return text.ToLower();
+            if (string.IsNullOrEmpty(text))
+                return;
+            text.ToLower();
         }
 
         public static string HashPassword(string password, string hashSalt)
@@ -26,5 +28,6 @@ namespace MS.Modular.BuildingBlocks.Domain.Extenstions
             keyGenerator.GetBytes(bytes);
             return BitConverter.ToString(bytes).Replace("-", "").ToLower();
         }
+    
     }
 }

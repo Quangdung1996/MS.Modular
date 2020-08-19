@@ -7,9 +7,10 @@ namespace MS.Modular.BuildingBlocks.Domain
     public class ReturnResponse<T>
     {
         public T Data { get; set; }
-        public bool Successful { get; set; }
+        public bool Succeeded { get; set; }
         public string Error { get; set; }
         public int StatusCode { get; set; }
+     
     }
 
 }

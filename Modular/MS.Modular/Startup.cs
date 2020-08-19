@@ -1,5 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Distributed;
@@ -7,12 +8,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using MS.Modular.AccountManagement.Domain.Dto;
 using MS.Modular.AccountManagement.Infrastructure.Configuration;
 using MS.Modular.Modules.AccountManagement;
 using Serilog;
 using Serilog.Formatting.Compact;
 using System;
+using System.Text;
 
 namespace MS.Modular
 {
@@ -50,6 +53,8 @@ namespace MS.Modular
                         configuration.GetSection("JwtConfig").Bind(settings);
                     });
 
+            services.AddHttpContextAccessor();
+            UseJWTToken(services, Configuration);
             return CreateAutofacServiceProvider(services);
         }
 
@@ -65,6 +70,8 @@ namespace MS.Modular
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
@@ -89,6 +96,30 @@ namespace MS.Modular
                                                 distributedCacheService,
                                                 _logger);
             return new AutofacServiceProvider(container);
+        }
+
+        private static void UseJWTToken(IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(configuration["JwtConfig:SecretKey"])),
+                    ValidateIssuer = true,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidIssuer = configuration["JwtConfig:Issuer"],
+                    ValidAudience = configuration["JwtConfig:Audience"],
+                    TokenDecryptionKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(configuration["JwtConfig:Encryptkey"])),
+                };
+            });
         }
 
         private static void ConfigureLogger()

@@ -23,7 +23,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Accounts
                 await _accountManagementContext.Accounts.AddAsync(account);
                 await  _accountManagementContext.SaveChangesAsync();
                 returnResponse.Data = account.AccountId;
-                returnResponse.Successful = true;
+                returnResponse.Succeeded = true;
             }
             catch (Exception ex)
             {

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 using MS.Modular.AccountManagement.Domain;
 using MS.Modular.AccountManagement.Domain.AccountManagements;
 using MS.Modular.AccountManagement.Domain.Accounts;
+using MS.Modular.AccountManagement.Domain.Dto;
 using MS.Modular.AccountManagement.Domain.Users;
 using MS.Modular.AccountManagement.Domain.ViewModels;
 using MS.Modular.AccountManagement.Infrastructure.Validations;
@@ -21,6 +22,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
         private readonly ITokenService _tokenService;
+
         public AccountManagementService(IAccountRepository accountRepository,
                                         IUserRepository userRepository,
                                         IMapper mapper,
@@ -32,32 +34,60 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
             _tokenService = tokenService;
         }
 
-        public async Task<ReturnResponse<AccountDataTransformation>> LoginAsync(AccountDataTransformation accountDataTransformation)
+        public async Task<ReturnResponse<RegisterAccountViewModel>> LoginAsync(AccountSignIn accountSignIn)
         {
-            var returnResponse = new ReturnResponse<AccountDataTransformation>();
-            var validator = new CreateAccountTransformtionValidator(_userRepository);
-            //var result = await validator.ValidateAsync(accountDataTransformation);
-            return default;
+            var returnResponse = new ReturnResponse<RegisterAccountViewModel>();
+            var validator = new AccountSignInValidator();
+            var validatorResult = await validator.ValidateAsync(accountSignIn);
+            if (validatorResult.Errors.Any())
+            {
+                returnResponse.Error = validatorResult.Errors.Join().ToString();
+                returnResponse.Succeeded = false;
+                return returnResponse;
+            }
+            var user = await _userRepository.GetAndValidateAsync(accountSignIn);
+
+            if (user != null)
+            {
+                var tokenInfo = await _tokenService.GenerateTokenAsync(user);
+
+                returnResponse.Data = new RegisterAccountViewModel()
+                {
+                    TokenInfo = new TokenInfo
+                    {
+                        AccessToken = tokenInfo.AccessToken,
+                        ExpiredInMinute = tokenInfo.ExpiredInMinute,
+                        RefreshToken = tokenInfo.RefreshToken
+                    },
+                    EmailAddress = user.EmailAddress,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName
+                };
+                returnResponse.Succeeded = true;
+                return returnResponse;
+            }
+            returnResponse.Succeeded = false;
+            return returnResponse;
         }
 
         public async Task<ReturnResponse<RegisterAccountViewModel>> RegisterAsync(CreateAccount createAccount)
         {
             var returnResponse = new ReturnResponse<RegisterAccountViewModel>();
-            var validator = new CreateAccountTransformtionValidator(_userRepository);
+            var validator = new CreateAccountValidator(_userRepository);
             ValidationResult validatorResult = await validator.ValidateAsync(createAccount);
             if (validatorResult.Errors.Any())
             {
                 returnResponse.Error = validatorResult.Errors.Join().ToString();
-                returnResponse.Successful = false;
+                returnResponse.Succeeded = false;
                 return returnResponse;
             }
 
             var account = new Account(createAccount.CompanyName, 1);
             var responseAccount = await _accountRepository.CreateAccountAsync(account);
-            returnResponse.Successful = responseAccount.Successful;
+            returnResponse.Succeeded = responseAccount.Succeeded;
             returnResponse.Error = responseAccount.Error;
 
-            if (responseAccount.Successful)
+            if (responseAccount.Succeeded)
             {
                 var salt = AccountExetions.GeneraSalt();
                 var user = _mapper.Map<CreateAccount, User>(createAccount);
@@ -69,7 +99,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
                 returnResponse.Data = _mapper.Map<User, RegisterAccountViewModel>(responseUser.Data);
                 returnResponse.Data.CompanyName = createAccount.CompanyName;
                 returnResponse.Data.TokenInfo = await _tokenService.GenerateTokenAsync(user);
-                returnResponse.Successful = responseUser.Successful;
+                returnResponse.Succeeded = responseUser.Succeeded;
                 returnResponse.Error = responseUser.Error;
             }
             return returnResponse;

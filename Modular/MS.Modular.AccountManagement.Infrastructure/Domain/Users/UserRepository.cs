@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MS.Modular.AccountManagement.Domain.Accounts;
 using MS.Modular.AccountManagement.Domain.Users;
 using MS.Modular.BuildingBlocks.Domain;
 using MS.Modular.BuildingBlocks.Domain.Extenstions;
@@ -24,24 +25,38 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Users
                 var checkEmailExists = await this.GetUserByEmailAddressAsync(user.EmailAddress).ConfigureAwait(false);
                 if (checkEmailExists.Data is null)
                 {
-                    user.EmailAddress = AccountExetions.ToLower(user.EmailAddress);
+                    user.EmailAddress.ToLowerEmail();
                     await _accountManagementContext.Users.AddAsync(user);
                     await _accountManagementContext.SaveChangesAsync();
                     returnResponse.Data = user;
-                    returnResponse.Successful = true;
+                    returnResponse.Succeeded = true;
                 }
                 else
                 {
                     returnResponse.Error = $"Email {user.EmailAddress} exists!";
-                    returnResponse.Successful = false;
+                    returnResponse.Succeeded = false;
                 }
             }
             catch (Exception ex)
             {
-                returnResponse.Successful = false;
+                returnResponse.Succeeded = false;
                 returnResponse.Error = ex.Message.ToString();
             }
             return returnResponse;
+        }
+
+        public async Task<User> GetAndValidateAsync(AccountSignIn accountSignIn)
+        {
+            accountSignIn.EmailAddress.ToLowerEmail();
+            var accountInfo = await _accountManagementContext.Users.FirstOrDefaultAsync(x => x.EmailAddress.Equals(accountSignIn.EmailAddress) && x.UserTypeId == accountSignIn.UserType);
+            if (accountInfo != null && VerifyPassword(accountInfo, accountSignIn.Password))
+            {
+                accountInfo.Password = string.Empty;
+                accountInfo.HashSalt = string.Empty;
+                return accountInfo;
+            }
+
+            return default;
         }
 
         public async Task<ReturnResponse<User>> GetUserByEmailAddressAsync(string emailAddress)
@@ -49,13 +64,13 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Users
             var returnResponse = new ReturnResponse<User>();
             try
             {
-                emailAddress = string.IsNullOrEmpty(emailAddress) ? string.Empty : AccountExetions.ToLower(emailAddress);
+                emailAddress.ToLowerEmail();
                 returnResponse.Data = await _accountManagementContext.Users.FirstOrDefaultAsync(x => x.EmailAddress.Equals(emailAddress));
-                returnResponse.Successful = true;
+                returnResponse.Succeeded = true;
             }
             catch (Exception ex)
             {
-                returnResponse.Successful = false;
+                returnResponse.Succeeded = false;
                 returnResponse.Error = ex.Message.ToString();
             }
             return returnResponse;
@@ -69,6 +84,11 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Users
         public Task<ReturnResponse<bool>> UpdateUserAsync(User user)
         {
             throw new NotImplementedException();
+        }
+
+        public static bool VerifyPassword(User source, string originalPassword)
+        {
+            return source.Password.Equals(AccountExetions.HashPassword(originalPassword, source.HashSalt));
         }
     }
 }

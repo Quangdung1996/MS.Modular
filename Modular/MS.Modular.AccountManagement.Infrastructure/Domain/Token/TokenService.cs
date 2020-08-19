@@ -4,12 +4,12 @@ using MS.Modular.AccountManagement.Domain;
 using MS.Modular.AccountManagement.Domain.Dto;
 using MS.Modular.AccountManagement.Domain.Redis;
 using MS.Modular.AccountManagement.Domain.Users;
-using MS.Modular.AccountManagement.Domain.ViewModels;
 using MS.Modular.BuildingBlocks.Domain;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -33,13 +33,11 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Token
             _options = options.Value;
             _redisService = redisService;
         }
-        //public TokenService(IRedisService redisService)
-        //{
-        //    _redisService = redisService;
-        //}
 
         public async Task<TokenInfo> GenerateTokenAsync(User user)
         {
+            user.Password = string.Empty;
+            user.HashSalt = string.Empty;
             var secretKey = Encoding.UTF8.GetBytes(_options.SecretKey);
             var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(secretKey), SecurityAlgorithms.HmacSha512);
 
@@ -51,13 +49,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Token
             var now = DateTime.UtcNow;
             var jwtClaims = new List<Claim>
             {
-                new Claim(AppConstant.ClaimAccount, JsonConvert.SerializeObject(new UserViewModel
-                {
-                    UserId=user.UserId,
-                    EmailAddress=user.EmailAddress,
-                    LastName=user.LastName,
-                    FirstName=user.FirstName
-                }, _jsonSerializerSettings)),
+                new Claim(AppConstant.ClaimAccount, JsonConvert.SerializeObject(user, _jsonSerializerSettings)),
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.UserId.ToString()),
                 new Claim(ClaimTypes.Role, GetUserType(user.UserId))
             };
@@ -90,19 +82,88 @@ namespace MS.Modular.AccountManagement.Infrastructure.Domain.Token
             return tokenInfo;
         }
 
-        public Task<TokenInfo> RefreshTokenAsync(string refreshToken)
+        public async Task<TokenInfo> RefreshTokenAsync(string refreshToken)
         {
-            throw new NotImplementedException();
+            var tokenKey = _tokenKeyPattern + refreshToken;
+            var tokenInfo = await _redisService.GetAsync<TokenInfo>(tokenKey);
+            if (tokenInfo == null)
+            {
+                return default;
+            }
+            var accountInfo = GetAccountInfoByToken(tokenInfo.AccessToken);
+            var result = await GenerateTokenAsync(accountInfo);
+            await _redisService.RemoveAsync(tokenKey);
+            return result;
         }
 
         public ReturnResponse<User> VerifyToken(string jwtToken)
         {
-            throw new NotImplementedException();
+            var returnResponse = new ReturnResponse<User>();
+            try
+            {
+                var tokenValidationParameters = GenerateTokenValidationParameters();
+
+                var handler = new JwtSecurityTokenHandler();
+
+                var calim = handler.ValidateToken(jwtToken, tokenValidationParameters, out SecurityToken validatedToken);
+                string accountStr = calim.Claims.Where(c => c.Type.Equals(AppConstant.ClaimAccount)).Select(x => x.Value).FirstOrDefault();
+                if (string.IsNullOrEmpty(accountStr))
+                {
+                    returnResponse.Error = "Invalid Token";
+                    returnResponse.Succeeded = false;
+                }
+                else
+                {
+                    returnResponse.Data = JsonConvert.DeserializeObject<User>(accountStr, _jsonSerializerSettings);
+                    returnResponse.Succeeded = true;
+                }
+            }
+            catch (Exception ex) when (ex is SecurityTokenException || ex is ArgumentException)
+            {
+                returnResponse.Error = ex.Message.ToString();
+                returnResponse.Succeeded = false;
+            }
+
+            return returnResponse;
+        }
+
+        private User GetAccountInfoByToken(string accessToken)
+        {
+            var tokenValidationParameters = GenerateTokenValidationParameters();
+            var handler = new JwtSecurityTokenHandler();
+            try
+            {
+                var calim = handler.ValidateToken(accessToken, tokenValidationParameters, out SecurityToken validatedToken);
+                string accountStr = calim.Claims.Where(c => c.Type.Equals(AppConstant.ClaimAccount)).Select(x => x.Value).FirstOrDefault();
+                if (string.IsNullOrEmpty(accountStr))
+                    return default;
+
+                return JsonConvert.DeserializeObject<User>(accountStr);
+            }
+            catch (Exception ex) when (ex is SecurityTokenException || ex is ArgumentException)
+            {
+                return default;
+            }
         }
 
         private string GetUserType(int userTypeId = 0)
         {
             return userTypeId > 0 ? "User" : "Admin";
+        }
+
+        private TokenValidationParameters GenerateTokenValidationParameters()
+        {
+            var secretKey = Encoding.UTF8.GetBytes(_options.SecretKey);
+            var encryptionkey = Encoding.UTF8.GetBytes(_options.Encryptkey);
+            var securityKey = new SymmetricSecurityKey(secretKey);
+            var tokenDecryptionKey = new SymmetricSecurityKey(encryptionkey);
+            return new TokenValidationParameters()
+            {
+                ValidAudiences = new string[] { _options.ValidAudience },
+                ValidIssuers = new string[] { _options.Issuer },
+                IssuerSigningKey = securityKey,
+                TokenDecryptionKey = tokenDecryptionKey,
+            };
         }
 
         private string GenerateRefreshToken(int userId)
