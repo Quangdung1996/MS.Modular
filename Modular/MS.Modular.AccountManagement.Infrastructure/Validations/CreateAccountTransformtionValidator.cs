@@ -27,10 +27,10 @@ namespace MS.Modular.AccountManagement.Infrastructure.Validations
             RuleFor(m => m.EmailAddress).NotEmpty().WithMessage("EmailAddress is a required field.");
             RuleFor(m => m.EmailAddress).EmailAddress();
 
-            RuleFor(x => x.EmailAddress).MustAsync(async (email) =>
+            RuleFor(x => x.EmailAddress).MustAsync(async (email, cancellation) =>
             {
                 return await GetUserByEmailAddressAsync(email);
-            });
+            }).WithMessage("Email Exits!");
         }
 
         private async Task<bool> GetUserByEmailAddressAsync(string email)

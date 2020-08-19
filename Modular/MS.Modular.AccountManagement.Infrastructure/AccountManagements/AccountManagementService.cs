@@ -31,15 +31,15 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
         public async Task<ReturnResponse<AccountDataTransformation>> LoginAsync(AccountDataTransformation accountDataTransformation)
         {
             var returnResponse = new ReturnResponse<AccountDataTransformation>();
-            var validator = new CreateAccountTransformtionValidator();
+            var validator = new CreateAccountTransformtionValidator(_userRepository);
             var result = await validator.ValidateAsync(accountDataTransformation);
             return default;
         }
 
-        public async Task<ReturnResponse<User>> RegisterAsync(AccountDataTransformation accountDataTransformation)
+        public async Task<ReturnResponse<AccountDataTransformation>> RegisterAsync(AccountDataTransformation accountDataTransformation)
         {
-            var returnResponse = new ReturnResponse<User>();
-            var validator = new CreateAccountTransformtionValidator();
+            var returnResponse = new ReturnResponse<AccountDataTransformation>();
+            var validator = new CreateAccountTransformtionValidator(_userRepository);
             ValidationResult validatorResult = await validator.ValidateAsync(accountDataTransformation);
             if (validatorResult.Errors.Any())
             {
@@ -57,7 +57,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
                 var user = _mapper.Map<AccountDataTransformation, User>(accountDataTransformation);
                 user.UserTypeId = 1;
                 var responseUser = await _userRepository.CreateUserAsync(user);
-                returnResponse.Data = responseUser.Data;
+                returnResponse.Data = _mapper.Map<User, AccountDataTransformation>(responseUser.Data);
                 returnResponse.Successful = responseUser.Successful;
                 returnResponse.Error = responseUser.Error;
             }

@@ -11,8 +11,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Configuration.Mapping
     {
         public AccountManagemenentProfile()
         {
-            CreateMap<User, AccountDataTransformation>();
-            CreateMap<AccountDataTransformation,User > ();
+            CreateMap<User, AccountDataTransformation>().ReverseMap();
         }
     }
 }
