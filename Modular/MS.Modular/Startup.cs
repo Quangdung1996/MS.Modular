@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MS.Modular.AccountManagement.Domain.Dto;
 using MS.Modular.AccountManagement.Infrastructure.Configuration;
 using MS.Modular.Modules.AccountManagement;
 using Serilog;
@@ -41,6 +42,13 @@ namespace MS.Modular
             {
                 options.Configuration = Configuration.GetConnectionString("Redis");
             });
+            services.AddOptions<JwtOptions>()
+                    .Configure<IConfiguration>((settings, configuration) =>
+                    {
+                        configuration.GetSection("JwtConfig").Bind(settings);
+                    });
+
+            services.AddTransient<ITokenService, MS.Modular.AccountManagement.Infrastructure.Domain.Token.TokenService>();
             return CreateAutofacServiceProvider(services);
         }
 

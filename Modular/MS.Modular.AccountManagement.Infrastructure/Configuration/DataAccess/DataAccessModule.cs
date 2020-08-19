@@ -2,10 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
+using MS.Modular.AccountManagement.Domain;
 using MS.Modular.AccountManagement.Domain.AccountManagements;
 using MS.Modular.AccountManagement.Domain.Redis;
 using MS.Modular.AccountManagement.Infrastructure.AccountManagements;
 using MS.Modular.AccountManagement.Infrastructure.Domain.Redis;
+using MS.Modular.AccountManagement.Infrastructure.Domain.Token;
 using MS.Modular.BuildingBlocks.Application.Data;
 using MS.Modular.BuildingBlocks.Infrastustructure;
 
@@ -50,6 +52,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.Configuration.DataAccess
                 .FindConstructorsWith(new AllConstructorFinder());
 
             builder.RegisterType<RedisService>().AsSelf().As<IRedisService>().InstancePerLifetimeScope();
+            //builder.RegisterType<TokenService>().AsSelf().As<ITokenService>().InstancePerLifetimeScope();
 
             builder.RegisterType<AccountManagementService>().AsSelf().As<IAccountManagementService>().InstancePerLifetimeScope();
         }
