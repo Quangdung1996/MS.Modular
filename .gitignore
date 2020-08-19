@@ -434,3 +434,15 @@
 /Modular/MS.Modular/logs/logs-20200819
 /Modular/.vs/MS.Modular/DesignTimeBuild/.dtbcache.v2
 /Modular/.vs/MS.Modular/v16/.suo
+/Modular/Database/bin/Debug/Database.dacpac
+/Modular/Database/bin/Debug/Database.dll
+/Modular/Database/bin/Debug/Database.pdb
+/Modular/Database/obj/Debug/Database.dll
+/Modular/Database/obj/Debug/Database.pdb
+/Modular/Database/obj/Debug/Database.sqlproj.FileListAbsolute.txt
+/Modular/Database/obj/Debug/Model.xml
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.Extensions.Caching.StackExchangeRedis.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Pipelines.Sockets.Unofficial.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Diagnostics.PerformanceCounter.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/StackExchange.Redis.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/System.Diagnostics.PerformanceCounter.dll
