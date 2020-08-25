@@ -12,7 +12,7 @@ namespace MS.Modular.AccountManagement.Domain.AccountManagements
 
         Task<ReturnResponse<RegisterAccountViewModel>> LoginAsync(AccountSignIn accountSignIn);
 
-        Task<ReturnResponse<AccountDataTransformation>> UpdateUserAsync(AccountDataTransformation accountDataTransformation);
+        Task<ReturnResponse<UpdateAccount>> UpdateAccountAsync(UpdateAccount updateAccount);
 
         Task<ReturnResponse<User>> UpdateUserAsync(int userId);
     }

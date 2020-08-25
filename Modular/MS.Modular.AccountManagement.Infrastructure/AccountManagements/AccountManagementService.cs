@@ -105,7 +105,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
             return returnResponse;
         }
 
-        public Task<ReturnResponse<AccountDataTransformation>> UpdateUserAsync(AccountDataTransformation accountDataTransformation)
+        public async Task<ReturnResponse<UpdateAccount>> UpdateAccountAsync(UpdateAccount updateAccount)
         {
             throw new NotImplementedException();
         }

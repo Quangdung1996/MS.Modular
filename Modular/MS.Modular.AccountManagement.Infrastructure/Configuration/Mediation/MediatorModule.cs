@@ -38,6 +38,12 @@ namespace MS.Modular.AccountManagement.Infrastructure.Configuration.Mediation
                     .AsClosedTypesOf(mediatorOpenType)
                     .AsImplementedInterfaces()
                     .FindConstructorsWith(new AllConstructorFinder());
+
+                builder
+                    .RegisterAssemblyTypes(Assemblies.ApplicationUpdate, ThisAssembly)
+                    .AsClosedTypesOf(mediatorOpenType)
+                    .AsImplementedInterfaces()
+                    .FindConstructorsWith(new AllConstructorFinder());
             }
 
             builder.RegisterGeneric(typeof(RequestPostProcessorBehavior<,>)).As(typeof(IPipelineBehavior<,>));

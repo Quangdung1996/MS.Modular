@@ -9,7 +9,6 @@ namespace MS.Modular.AccountManagement.Application.Contracts
     {
         ReturnResponse<RegisterAccountViewModel> ReturnResponse { get; }
     }
-
     public interface ICommand : IRequest<Unit>
     {
         ReturnResponse<RegisterAccountViewModel> ReturnResponse { get; }
