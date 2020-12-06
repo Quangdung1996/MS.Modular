@@ -449,3 +449,17 @@
 /Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
 /Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Versioning.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/QD.Swagger.Extensions.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Scrutor.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Swashbuckle.AspNetCore.Annotations.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Swashbuckle.AspNetCore.Filters.dll
+/Modular/MS.Modular/bin/netcoreapp3.1/Swashbuckle.AspNetCore.Newtonsoft.dll
+/Modular/.vs/MS.Modular/v16/.suo
+/Modular/.vs/MS.Modular/v16/TestStore/0/000.testlog
+/Modular/.vs/MS.Modular/v16/TestStore/0/testlog.manifest

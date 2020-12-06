@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using MS.Modular.AccountManagement.Domain.Dto;
 using MS.Modular.AccountManagement.Infrastructure.Configuration;
 using MS.Modular.Modules.AccountManagement;
+using QD.Swagger.Extensions;
 using Serilog;
 using Serilog.Formatting.Compact;
 using System;
@@ -41,7 +42,6 @@ namespace MS.Modular
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerDocumentation();
 
             services.AddStackExchangeRedisCache(options =>
             {
@@ -53,6 +53,8 @@ namespace MS.Modular
                         configuration.GetSection("JwtConfig").Bind(settings);
                     });
 
+            services.AddSwaggerForApiDocs("'MS.Modular v'VVVV", options => { });
+
             services.AddHttpContextAccessor();
             UseJWTToken(services, Configuration);
             return CreateAutofacServiceProvider(services);
@@ -61,7 +63,6 @@ namespace MS.Modular
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseSwaggerDocumentation();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -71,9 +72,10 @@ namespace MS.Modular
 
             app.UseRouting();
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
+            app.UseSwaggerForApiDocs("BizAction APIs", false);
 
             app.UseEndpoints(endpoints =>
             {

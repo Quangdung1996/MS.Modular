@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MS.Modular.AccountManagement.Application.Accounts;
 using MS.Modular.AccountManagement.Application.Contracts;
-using MS.Modular.AccountManagement.Domain.AccountManagements;
 using MS.Modular.AccountManagement.Domain.Accounts;
+using MS.Modular.Controllers;
 using System.Threading.Tasks;
 
 namespace MS.Modular.Modules.AccountManagement
 {
-    [Route("api/[controller]")]
+    [Route("v{version:apiVersion}/api/[controller]")]
     [ApiController]
-    public class AccountManagementController : ControllerBase
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    public class AccountManagementController : BaseController
+
     {
         private readonly IAccountManagementModule _accountManagementModule;
 
@@ -32,7 +34,8 @@ namespace MS.Modular.Modules.AccountManagement
         {
             var result = await _accountManagementModule.ExecuteCommandAsync(new LoginAccountCommand(accountSignIn));
             return Ok(result);
-
         }
     }
+
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

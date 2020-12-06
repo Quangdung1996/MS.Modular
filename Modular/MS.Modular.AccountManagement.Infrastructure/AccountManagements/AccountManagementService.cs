@@ -70,6 +70,7 @@ namespace MS.Modular.AccountManagement.Infrastructure.AccountManagements
             return returnResponse;
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "EF1001:Internal EF Core API usage.", Justification = "<Pending>")]
         public async Task<ReturnResponse<RegisterAccountViewModel>> RegisterAsync(CreateAccount createAccount)
         {
             var returnResponse = new ReturnResponse<RegisterAccountViewModel>();

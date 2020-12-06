@@ -102,7 +102,7 @@ namespace MS.Modular.BuildingBlocks.Infrastustructure
                     }
                 });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -120,7 +120,7 @@ namespace MS.Modular.BuildingBlocks.Infrastustructure
                     }
                 });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
